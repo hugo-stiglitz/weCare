@@ -19,7 +19,8 @@ public class Application extends Neo4jConfiguration {
 
     @Bean(destroyMethod = "shutdown")
     public GraphDatabaseService graphDatabaseService() {
-        return new GraphDatabaseFactory().newEmbeddedDatabase("target/hello.db");
+        return new GraphDatabaseFactory().newEmbeddedDatabase("database/test.db");
+        //return new GraphDatabaseFactory().newEmbeddedDatabase("database/productive.db");
     }
 
     public static void main(String[] args) {
