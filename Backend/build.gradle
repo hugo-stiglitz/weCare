@@ -27,10 +27,11 @@ repositories {
 }
 
 dependencies {
-    //compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-rest")
-    compile("org.springframework.data:spring-data-neo4j")
-    compile("org.hibernate:hibernate-validator")
+    compile("org.springframework:spring-jdbc")
+    compile("org.hsqldb:hsqldb")
+    //compile("org.springframework.data:spring-data-neo4j")
+    //compile("org.hibernate:hibernate-validator")
     testCompile("junit:junit")
 }
 
