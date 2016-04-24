@@ -15,6 +15,6 @@ public class SetupDao implements ISetupDao {
     @Override
     public void createTableUser() {
         template.execute("DROP TABLE user IF EXISTS");
-    template.execute("CREATE TABLE user(id INTEGER IDENTITY PRIMARY KEY, first_name VARCHAR(63), last_name VARCHAR(63))");
+        template.execute("CREATE TABLE user(id INTEGER IDENTITY PRIMARY KEY, user_type VARCHAR(63), first_name VARCHAR(63), last_name VARCHAR(63))");
     }
 }

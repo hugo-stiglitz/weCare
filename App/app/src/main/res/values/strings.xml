@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">weCare</string>
+
+    <string name="hint_name">Name</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_sign_up">Sign Up</string>
+
+    <string name="err_msg_name">Invalid Name</string>
+    <string name="err_msg_email">Invalid Email</string>
+    <string name="err_msg_password">Invalid Password</string>
+
+</resources>

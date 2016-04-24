@@ -16,6 +16,8 @@ public abstract class AUser {
         setLastName(lastName);
     }
 
+    public abstract String getType();
+
     public Long getId() {
         return id;
     }
