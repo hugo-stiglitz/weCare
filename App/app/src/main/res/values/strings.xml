@@ -1,13 +1,16 @@
 <resources>
     <string name="app_name">weCare</string>
 
-    <string name="hint_name">Name</string>
-    <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
-    <string name="btn_sign_up">Sign Up</string>
+    <string name="hint_id">Dienstnummer</string>
+    <string name="hint_password">Passwort</string>
+    <string name="btn_login">Anmelden</string>
 
-    <string name="err_msg_name">Invalid Name</string>
-    <string name="err_msg_email">Invalid Email</string>
-    <string name="err_msg_password">Invalid Password</string>
+    <string name="err_msg_unknown">Unbekannter Fehler</string>
+
+    <string name="err_msg_id">Ungültige Dienstnummer</string>
+    <string name="err_msg_password">Ungültiges Passwort</string>
+
+    <string name="action_message">Benachrichtigung</string>
+
 
 </resources>

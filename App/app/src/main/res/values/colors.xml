@@ -1,9 +1,14 @@
 <resources>
 
-    <color name="primary">#8BC34A</color>
-    <color name="primaryDark">#F44336</color>
+    <color name="background">#FFFFFF</color>
 
-    <color name="accent">#FF8F00</color>
-    <color name="background">#DCEDC8</color>
+    <color name="primary">#ED1C24</color>
+    <color name="primary_dark">#CC0000</color>
+    <color name="accent">#ff5722</color>
+    <color name="primary_text">#FFFFFF</color>
+    <color name="secondary_text">#D0D0D0</color>
+    <color name="general_text">#0B0B0B</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
 
 </resources>
