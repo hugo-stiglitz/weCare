@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="eu.ldob.wecare.app.gui.OverviewActivity" >
+
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/navigation_item_1"
+            android:icon="@drawable/placeholder"
+            android:title="Toolbar"/>
+        <item
+            android:id="@+id/navigation_item_2"
+            android:icon="@drawable/placeholder"
+            android:title="FloatActionButton"/>
+
+        <item
+            android:id="@+id/navigation_item_3"
+            android:icon="@drawable/placeholder"
+            android:title="NavigationView"/>
+    </group>
+
+</menu>

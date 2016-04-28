@@ -11,7 +11,6 @@ import eu.ldob.wecare.entity.user.Dispatcher;
 import eu.ldob.wecare.entity.user.Doctor;
 import eu.ldob.wecare.entity.user.Paramedic;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

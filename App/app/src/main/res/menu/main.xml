@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="eu.ldob.wecare.app.gui.MainActivity">
+
+    <item android:id="@+id/action_settings"
+        android:title="TMP1"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_refresh"
+        android:title="TMP2"
+        android:icon="@drawable/placeholder"
+        android:orderInCategory="200"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_new"
+        android:title="TMP3"
+        android:icon="@drawable/placeholder"
+        android:orderInCategory="300"
+        app:showAsAction="never" />
+
+</menu>

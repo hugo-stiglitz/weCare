@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="app.wecare.ldob.eu.wecare" >
+    package="eu.ldob.app.wecare" >
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".OverviewActivity"
+            android:name="eu.ldob.wecare.app.gui.LoginActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" >
@@ -19,7 +19,8 @@
             </intent-filter>s
         </activity>
 
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name="eu.ldob.wecare.app.gui.MainActivity"></activity>
+        <activity android:name="eu.ldob.wecare.app.gui.OverviewActivity"></activity>
 
 
     </application>

@@ -1,9 +1,9 @@
-package app.wecare.ldob.eu.wecare;
+package eu.ldob.wecare.app.gui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -13,81 +13,67 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import eu.ldob.app.wecare.R;
+import eu.ldob.wecare.app.service.Service;
+import eu.ldob.wecare.app.service.ServiceHandler;
+
 public class LoginActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
-    private EditText inputName, inputEmail, inputPassword;
-    private TextInputLayout inputLayoutName, inputLayoutEmail, inputLayoutPassword;
-    private Button btnSignUp;
+    private EditText inputId, inputPassword;
+    private TextInputLayout inputLayoutId, inputLayoutPassword;
+    private Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        inputLayoutName = (TextInputLayout) findViewById(R.id.input_layout_name);
-        inputLayoutEmail = (TextInputLayout) findViewById(R.id.input_layout_email);
+        inputLayoutId = (TextInputLayout) findViewById(R.id.input_layout_id);
         inputLayoutPassword = (TextInputLayout) findViewById(R.id.input_layout_password);
-        inputName = (EditText) findViewById(R.id.input_name);
-        inputEmail = (EditText) findViewById(R.id.input_email);
-        inputPassword = (EditText) findViewById(R.id.input_password);
-        btnSignUp = (Button) findViewById(R.id.btn_signup);
 
-        inputName.addTextChangedListener(new MyTextWatcher(inputName));
-        inputEmail.addTextChangedListener(new MyTextWatcher(inputEmail));
+        inputId = (EditText) findViewById(R.id.input_id);
+        inputPassword = (EditText) findViewById(R.id.input_password);
+        btnLogin = (Button) findViewById(R.id.btn_login);
+
+        inputId.addTextChangedListener(new MyTextWatcher(inputId));
         inputPassword.addTextChangedListener(new MyTextWatcher(inputPassword));
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        //btnLogin.setOnClickListener((view) -> login());
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                submitForm();
+            public void onClick(View v) {
+                login();
             }
         });
+
+        inputId.setText("123");
+        inputPassword.setText("abc");
     }
 
     /**
      * Validating form
      */
-    private void submitForm() {
-        if (!validateName()) {
-            return;
-        }
+    private void login() {
+        if (validateId() && validatePassword()) {
 
-        if (!validateEmail()) {
-            return;
+            ServiceHandler.setService(new Service());
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
-
-        if (!validatePassword()) {
-            return;
+        else {
+            Toast.makeText(getApplicationContext(), getString(R.string.err_msg_unknown), Toast.LENGTH_SHORT).show();
         }
-
-        Toast.makeText(getApplicationContext(), "Thank You!", Toast.LENGTH_SHORT).show();
     }
 
-    private boolean validateName() {
-        if (inputName.getText().toString().trim().isEmpty()) {
-            inputLayoutName.setError(getString(R.string.err_msg_name));
-            requestFocus(inputName);
+    private boolean validateId() {
+        String id = inputId.getText().toString().trim();
+
+        if (id.isEmpty()) {
+            inputLayoutId.setError(getString(R.string.err_msg_id));
+            requestFocus(inputId);
             return false;
         } else {
-            inputLayoutName.setErrorEnabled(false);
-        }
-
-        return true;
-    }
-
-    private boolean validateEmail() {
-        String email = inputEmail.getText().toString().trim();
-
-        if (email.isEmpty() || !isValidEmail(email)) {
-            inputLayoutEmail.setError(getString(R.string.err_msg_email));
-            requestFocus(inputEmail);
-            return false;
-        } else {
-            inputLayoutEmail.setErrorEnabled(false);
+            inputLayoutId.setErrorEnabled(false);
         }
 
         return true;
@@ -131,11 +117,8 @@ public class LoginActivity extends AppCompatActivity {
 
         public void afterTextChanged(Editable editable) {
             switch (view.getId()) {
-                case R.id.input_name:
-                    validateName();
-                    break;
-                case R.id.input_email:
-                    validateEmail();
+                case R.id.input_id:
+                    validateId();
                     break;
                 case R.id.input_password:
                     validatePassword();
