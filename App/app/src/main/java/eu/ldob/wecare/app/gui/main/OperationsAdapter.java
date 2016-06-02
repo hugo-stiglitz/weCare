@@ -1,16 +1,18 @@
 package eu.ldob.wecare.app.gui.main;
 
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.List;
 
-import eu.ldob.app.wecare.R;
+import eu.ldob.wecare.app.R;
 import eu.ldob.wecare.entity.operation.Operation;
 
 public class OperationsAdapter extends RecyclerView.Adapter<OperationsAdapter.ViewHolder> {
@@ -23,14 +25,16 @@ public class OperationsAdapter extends RecyclerView.Adapter<OperationsAdapter.Vi
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView tvName;
-        public Button btOpen;
+        public TextView tvId;
+        public TextView tvInfo;
+        public ImageButton btEdit;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            tvName = (TextView) itemView.findViewById(R.id.operation_name);
-            btOpen = (Button) itemView.findViewById(R.id.open_button);
+            tvId = (TextView) itemView.findViewById(R.id.operation_id);
+            tvInfo = (TextView) itemView.findViewById(R.id.operation_info);
+            btEdit = (ImageButton) itemView.findViewById(R.id.edit_button);
         }
     }
 
@@ -50,13 +54,28 @@ public class OperationsAdapter extends RecyclerView.Adapter<OperationsAdapter.Vi
 
         Operation operation = operations.get(position);
 
-        // Set item views based on the data model
-        TextView textView = viewHolder.tvName;
-        textView.setText(operation.toString());
+        TextView tvId = viewHolder.tvId;
+        tvId.setText(operation.getId());
 
-        Button button = viewHolder.btOpen;
-        button.setText("Öffnen");
+        TextView tvInfo = viewHolder.tvInfo;
+        tvInfo.setText(operation.getInfo());
 
+        ImageButton btEdit = viewHolder.btEdit;
+        btEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar
+                    //.make(findViewById(R.id.rootLayout),
+                    .make(v, "Einsatz kann nicht bearbeitet werden", Snackbar.LENGTH_LONG)
+                    .setAction("OK", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                        }
+                    })
+                    .show();
+            }
+        });
     }
 
     // Return the total count of items

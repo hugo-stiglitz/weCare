@@ -12,9 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import eu.ldob.app.wecare.R;
+import eu.ldob.wecare.app.R;
 import eu.ldob.wecare.app.gui.main.OperationsFragment;
-import eu.ldob.wecare.app.gui.main.OperationsRecycledFragment;
 import eu.ldob.wecare.app.service.Service;
 import eu.ldob.wecare.app.service.ServiceHandler;
 import eu.ldob.wecare.app.util.ViewPagerAdapter;
@@ -88,10 +87,6 @@ public class MainActivity extends AppCompatActivity {
         AWeCareFragment operationsFragment = new OperationsFragment();
         operationsFragment.setService(service);
         adapter.addFrag(operationsFragment, "Einsätze");
-
-        AWeCareFragment operationsRecycledFragment = new OperationsRecycledFragment();
-        operationsRecycledFragment.setService(service);
-        adapter.addFrag(operationsRecycledFragment, "Einsätze");
 
         viewPager = (ViewPager) findViewById(R.id.tabs_viewpager);
         viewPager.setAdapter(adapter);

@@ -14,28 +14,9 @@ public class Service {
     public List<Operation> getOperations() {
 
         List<Operation> operations = new ArrayList<>();
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
-        operations.add(new Operation());
+        for(int i = 1; i <= 15; i++) {
+            operations.add(new Operation(i, "R1603" + String.format("%04d", i * 3 + (11 % i))));
+        }
 
         return operations;
     }

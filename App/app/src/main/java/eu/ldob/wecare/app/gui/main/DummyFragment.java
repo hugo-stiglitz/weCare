@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import eu.ldob.app.wecare.R;
+import eu.ldob.wecare.app.R;
 
 public class DummyFragment extends Fragment {
 

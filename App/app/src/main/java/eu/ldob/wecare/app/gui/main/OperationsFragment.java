@@ -1,20 +1,17 @@
 package eu.ldob.wecare.app.gui.main;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import eu.ldob.app.wecare.R;
+import eu.ldob.wecare.app.R;
 import eu.ldob.wecare.app.gui.AWeCareFragment;
 import eu.ldob.wecare.app.service.Service;
-import eu.ldob.wecare.entity.operation.Operation;
 
-public class OperationsFragment extends AWeCareFragment implements AdapterView.OnItemClickListener {
+public class OperationsFragment extends AWeCareFragment {
 
     private Service service;
 
@@ -27,22 +24,13 @@ public class OperationsFragment extends AWeCareFragment implements AdapterView.O
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_operations, container, false);
+        
+        OperationsAdapter adapter = new OperationsAdapter(service.getOperations());
 
-        ListView lvOperations = (ListView) view.findViewById(R.id.lv_operations);
-
-        ArrayAdapter<Operation> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1);
-        adapter.addAll(service.getOperations());
-
-        lvOperations.setAdapter(adapter);
-        lvOperations.setOnItemClickListener(this);
+        RecyclerView rvOperations = (RecyclerView) view.findViewById(R.id.rv_operations);
+        rvOperations.setAdapter(adapter);
+        rvOperations.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         return view;
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast
-            .makeText(getActivity(), "Item: " + position, Toast.LENGTH_SHORT)
-            .show();
     }
 }

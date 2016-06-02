@@ -1,5 +1,6 @@
 package eu.ldob.wecare.app.util;
 
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -17,6 +18,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     }
 
     public void addFrag(Fragment fragment, String title) {
+        fragmentList.add(fragment);
+        fragmentTitleList.add(title);
+    }
+
+    public void addFrag(Fragment fragment, String title, Drawable icon) {
         fragmentList.add(fragment);
         fragmentTitleList.add(title);
     }

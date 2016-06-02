@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.WindowManager;
@@ -13,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import eu.ldob.app.wecare.R;
+import eu.ldob.wecare.app.R;
 import eu.ldob.wecare.app.service.Service;
 import eu.ldob.wecare.app.service.ServiceHandler;
 
@@ -50,9 +49,6 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword.setText("abc");
     }
 
-    /**
-     * Validating form
-     */
     private void login() {
         if (validateId() && validatePassword()) {
 
@@ -89,10 +85,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         return true;
-    }
-
-    private static boolean isValidEmail(String email) {
-        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
     private void requestFocus(View view) {
