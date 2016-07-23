@@ -1,0 +1,72 @@
+﻿body {
+    font-family: Roboto !important;
+}
+
+.line-highlight {
+    background-color: rgb(255,193,7);
+    width: 100%;
+}
+
+a {
+    color: rgb(237,28,36) !important;
+}
+a:hover {
+    color: rgba(237,28,36,0.7) !important;
+}
+
+.wecare-dialog-medium {
+    min-width: 50%;
+    max-width: 50%;
+    width: 50%;
+    min-height: 80%;
+    max-height: 80%;
+    height: 80%;
+}
+
+/* 
+    enable multiple lines in tooltip
+    Source: http://stackoverflow.com/questions/13338780/how-to-make-twitter-bootstrap-tooltips-have-multiple-lines
+*/
+.tooltip-inner {
+    white-space: pre;
+    max-width: none;
+}
+
+.primary-text {
+    color: rgb(237,28,36);
+}
+
+.input-view {
+    margin-bottom: 2px !important;
+}
+.input-view>label {
+    color: rgb(237,28,36) !important;
+    font-size: larger;
+}
+.input-view>input[disabled] {
+    color: rgb(255,193,7) !important;
+    border-color: rgba(255,193,7,0.5) !important;
+    border-bottom-style: solid !important;
+    background-image: none !important;
+    cursor: context-menu !important;
+}
+.input-view>input.right {
+    text-align: right;
+}
+.md-errors-spacer {
+    min-height: 0px;
+    height: 0px;
+    max-height: 0px;
+}
+
+md-list-item.md-3-line::before,
+md-list-item.md-3-line>.md-no-style::before {
+    min-height: 2px !important;
+    max-height: 2px !important;
+    height: 2px !important;
+}
+
+.md-subheader.no-bottom-padding .md-subheader-inner {
+    padding-top: 24px !important;
+    padding-bottom: 0px !important;
+}

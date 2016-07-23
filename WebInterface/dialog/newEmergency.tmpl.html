@@ -1,0 +1,139 @@
+<md-dialog aria-label="Neuer Einsatz" class="wecare-dialog-medium" ng-cloak>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools md-whiteframe-z4">
+                <h2>Neuer Einsatz</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="close()">
+                    <md-icon md-svg-src="img/icons/close.svg" aria-label="Schließen"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-tabs md-dynamic-height md-border-bottom md-selected="selectedTabId" md-swipe-content="true">
+                    <md-tab label="Notfallgeschehen">
+                        <md-content class="md-padding">
+                            <h4>Notfallgeschehen</h4>
+                            <div layout="column" layout-align="space-around stretch" flex>
+                                <div layout="row" layout-align="space-around stretch" flex>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="id">ID</label>
+                                        <input type="text" id="id" ng-model="emergency.id">
+                                    </md-input-container>
+                                </div>
+                                <div layout="row" layout-align="space-around stretch" flex>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="message">Notfallgeschehen</label>
+                                        <input type="text" id="message" ng-model="emergency.message">
+                                    </md-input-container>
+                                </div>
+                                <div layout="row" layout-align="space-around stretch" flex>
+                                    <md-checkbox ng-model="emergency.cpr" aria-label="Reanimation">Reanimation</md-checkbox>
+                                    <md-checkbox ng-model="emergency.unconsciousness" aria-label="Bewusstlosigkeit">Bewusstlosigkeit</md-checkbox>
+                                    <md-checkbox ng-model="emergency.unknown" aria-label="Unklare Sache">Unklare Sache</md-checkbox>
+                                    <md-checkbox ng-model="emergency.violence" aria-label="Gewalt am Einsatzort">Gewalt am Einsatzort</md-checkbox>
+                                </div>
+                                <div layout="row" layout-align="space-around stretch" flex>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="caller">Anrufer</label>
+                                        <input type="text" id="caller" ng-model="emergency.caller.name">
+                                    </md-input-container>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="callnumber">Telefonnummer</label>
+                                        <input type="number" id="callnumber" ng-model="emergency.caller.number">
+                                    </md-input-container>
+                                </div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Einsatzort">
+                        <md-content class="md-padding">
+                            <h4>Einsatzort</h4>
+                            <div layout="column" layout-align="space-around stretch" flex>
+                                <div layout="row" layout-align="space-around stretch" flex>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="city">Ort</label>
+                                        <input type="text" id="city" ng-model="emergency.location.city">
+                                    </md-input-container>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="zip">PLZ</label>
+                                        <input type="number" id="zip" ng-model="emergency.location.zip">
+                                    </md-input-container>
+                                </div>
+                                <div layout="row" layout-align="space-around stretch" flex>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="address">Adresse</label>
+                                        <input type="text" id="address" ng-model="emergency.location.address">
+                                    </md-input-container>
+                                </div>
+                            </div>
+                            <h4>Einsatzort - Koordinaten</h4>
+                            <div layout="column" layout-align="space-around stretch" flex>
+                                <div layout="row" layout-align="space-around stretch" flex>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="lat">Lat</label>
+                                        <input type="number" id="lat" ng-model="emergency.location.coordinates.lat">
+                                    </md-input-container>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="lng">Lng</label>
+                                        <input type="number" id="lng" ng-model="emergency.location.coordinates.lng">
+                                    </md-input-container>
+                                </div>
+                            </div>
+                            <h4>Alarmiertes Einsatzfahrzeug - Koordinaten</h4>
+                            <div layout="column" layout-align="space-around stretch" flex>
+                                <div layout="row" layout-align="space-around stretch" flex>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="latAmbulance">Lat</label>
+                                        <input type="number" id="latAmbulance" ng-model="emergency.ambulance.coordinates.lat">
+                                    </md-input-container>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="lngAmbulance">Lng</label>
+                                        <input type="number" id="lngAmbulance" ng-model="emergency.ambulance.coordinates.lng">
+                                    </md-input-container>
+                                </div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Patient">
+                        <md-content class="md-padding">
+                            <h4>Patient</h4>
+                            <div layout="column" layout-align="space-around stretch" flex>
+                                <div layout="row" layout-align="space-around stretch" flex>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="lastname">Nachname</label>
+                                        <input type="text" id="lastname" ng-model="emergency.patient.lastname">
+                                    </md-input-container>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="firstname">Vorname</label>
+                                        <input type="text" id="firstname" ng-model="emergency.patient.firstname">
+                                    </md-input-container>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="age">Alter</label>
+                                        <input type="number" id="age" ng-model="emergency.patient.age">
+                                    </md-input-container>
+                                </div>
+                                <div layout="row" layout-align="space-around stretch" flex>
+                                    <md-input-container class="input-view" flex>
+                                        <label for="ssn">SVNR</label>
+                                        <input type="number" id="ssn" ng-model="emergency.patient.ssn">
+                                    </md-input-container>
+                                </div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <!-- TODO -->
+            <div layout="row" layout-align="space-around">
+                <md-progress-circular md-mode="indeterminate" md-diameter="25px"></md-progress-circular>
+            </div>
+            <md-button ng-disabled="isLoading() || !isAlertable()" class="md-raised md-primary" ng-click="alert()">
+                Alarmieren
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

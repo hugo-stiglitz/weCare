@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html ng-app="weCare">
+<head>
+    <title>weCare - Dispatcher</title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- ONLINE -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+    <!--
+    <link href="https://gitcdn.link/repo/angular/bower-material/master/angular-material.min.css" rel="stylesheet" type="text/css">
+    -->
+
+    <!-- OFFLINE -->
+    <link href="lib/angular-material.min.css" rel="stylesheet" type="text/css">
+    <link href="css/wecare.css" rel="stylesheet" type="text/css">
+</head>
+<body ng-controller="MainCtrl" ng-cloak>
+
+    <!-- ONLINE -->
+    <!--
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.9/angular-material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.0.0/ui-bootstrap.min.js"></script>
+    -->
+
+    <!-- OFFLINE -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-animate.min.js"></script>
+    <script src="lib/angular-aria.min.js"></script>
+    <script src="lib/angular-material.min.js"></script>
+    <script src="lib/ui-bootstrap.min.js"></script>
+
+    <script src="js/wecare.js"></script>
+    <script src="js/wecare-ctrl.js"></script>
+    <script src="js/wecare-http.js"></script>
+
+    <md-toolbar>
+        <div class="md-toolbar-tools md-whiteframe-z4">
+            <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleMenu()">
+                <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+            </md-button>
+            <h2>
+                <span>weCare</span>
+            </h2>
+            <span flex></span>
+            <div layout="row" style="margin-right: 30px">
+                <md-icon md-svg-icon="img/icons/dispatcher.svg" style="margin-right: 10px"></md-icon>
+                {{dispatcher.name}}
+            </div>
+            <md-menu>
+                <md-button class="md-icon-button" aria-label="More" ng-click="openMore($mdOpenMenu, $event)">
+                    <md-icon md-menu-origin md-svg-icon="img/icons/more_vert.svg"></md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button>
+                            <md-icon md-svg-icon="img/icons/break.svg"></md-icon>
+                            Pause
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button>
+                            <md-icon md-svg-icon="img/icons/logout.svg"></md-icon>
+                            Abmelden
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-toolbar>
+
+    <section layout="column" flex>
+
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="menu">
+            <md-toolbar class="md-theme-light">
+                <div class="md-toolbar-tools md-whiteframe-z4">
+                    <md-button class="md-icon-button" aria-label="Menu" ng-click="toggleMenu()">
+                        <md-icon md-svg-icon="img/icons/back.svg"></md-icon>
+                    </md-button>
+                    <h2>
+                        <span>weCare</span>
+                    </h2>
+                    <span flex></span>
+                </div>
+            </md-toolbar>
+            <md-content layout-padding>
+
+                <md-subheader class="md-no-sticky">Einsätze</md-subheader>
+
+                <md-list-item ng-click="toggleMenu(); showMain()">
+                    <md-icon md-svg-icon="img/icons/info.svg"></md-icon>
+                    <p> Aktuelle Einsätze </p>
+                </md-list-item>
+
+                <md-list-item ng-click="toggleMenu(); showHistory()">
+                    <md-icon md-svg-icon="img/icons/history.svg"></md-icon>
+                    <p> Abgeschlossene Einsätze </p>
+                </md-list-item>
+
+                <md-divider></md-divider>
+
+                <md-subheader class="md-no-sticky">Tool Info</md-subheader>
+                <md-list-item ng-click="showAuthors($event)">
+                    <md-icon md-menu-origin md-svg-icon="img/icons/authors.svg"></md-icon>
+                    <p> Entwicklung </p>
+                </md-list-item>
+
+            </md-content>
+        </md-sidenav>
+
+        <md-content layout="column" layout-padding flex>
+
+            <div layout="row" flex>
+                <md-card flex="25">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Allgemeine Informationen</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <div layout="column" layout-align="space-around stretch">
+                            <md-input-container class="input-view" ng-repeat="info in generalInfo" style="padding-bottom: 45px" flex>
+                                <label for="info.key">{{info.key}}</label>
+                                <input class="right" type="text" id="info.key" ng-model="info.value" disabled>
+                            </md-input-container>
+                        </div>
+                    </md-card-content>
+                </md-card>
+                <md-card flex="75">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Aktuelle Einsätze</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <md-list flex>
+                            <div ng-repeat="status in activeStatus | orderBy:'-id'">
+                                <md-divider ></md-divider>
+                                <md-subheader class="md-no-sticky no-bottom-padding">{{status.name}}</md-subheader>
+                                <md-list-item class="md-3-line" ng-repeat="emergency in status.emergencies | orderBy:'-id'" ng-click="null">
+                                    <img ng-src="img/emergency.png" class="md-avatar"/>
+                                    <div class="md-list-item-text" layout="column">
+                                        <h3>{{emergency.id}} - {{emergency.message}}</h3>
+                                        <h4>{{emergency.location.city}} : {{emergency.location.address}}</h4>
+                                        <p>{{emergency.info}}</p>
+                                    </div>
+                                </md-list-item>
+                            </div>
+                        </md-list>
+                    </md-card-content>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button ng-click="newEmergency()" class="md-raised md-primary">Neuer Einsatz</md-button>
+                    </md-card-actions>
+                </md-card>
+            </div>
+
+        </md-content>
+
+    </section>
+
+</body>
+</html>
