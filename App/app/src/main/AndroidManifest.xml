@@ -11,6 +11,7 @@
         <activity
             android:name=".gui.LoginActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" >
             <intent-filter>
@@ -19,7 +20,17 @@
             </intent-filter>s
         </activity>
 
-        <activity android:name=".gui.MainActivity"></activity>
+        <activity
+            android:name=".gui.MainActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".gui.OperationActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".gui.DocumentationActivity"
+            android:screenOrientation="portrait" />
 
         <service
             android:name=".notification.WeCareFirebaseMessagingService">

@@ -13,7 +13,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import eu.ldob.wecare.app.R;
-import eu.ldob.wecare.app.gui.main.OperationsFragment;
+import eu.ldob.wecare.app.gui.main.CurrentFragment;
+import eu.ldob.wecare.app.gui.main.HistoryFragment;
 import eu.ldob.wecare.app.service.Service;
 import eu.ldob.wecare.app.service.ServiceHandler;
 import eu.ldob.wecare.app.util.ViewPagerAdapter;
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setHomeAsUpIndicator(R.drawable.placeholder);
+        actionBar.setHomeAsUpIndicator(R.drawable.menu);
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
@@ -84,9 +85,13 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        AWeCareFragment operationsFragment = new OperationsFragment();
-        operationsFragment.setService(service);
-        adapter.addFrag(operationsFragment, "Einsätze");
+        AWeCareFragment currentFragment = new CurrentFragment();
+        currentFragment.setService(service);
+        adapter.addFrag(currentFragment, "Aktuell");
+
+        AWeCareFragment historyFragment = new HistoryFragment();
+        historyFragment.setService(service);
+        adapter.addFrag(historyFragment, "Abgeschlossen");
 
         viewPager = (ViewPager) findViewById(R.id.tabs_viewpager);
         viewPager.setAdapter(adapter);

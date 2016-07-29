@@ -6,9 +6,11 @@
     <color name="primary_dark">#CC0000</color>
     <color name="accent">#ff5722</color>
     <color name="primary_text">#FFFFFF</color>
-    <color name="secondary_text">#D0D0D0</color>
+    <color name="secondary_text">#303030</color>
     <color name="general_text">#0B0B0B</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#B6B6B6</color>
+
+    <color name="transparent">#0000</color>
 
 </resources>

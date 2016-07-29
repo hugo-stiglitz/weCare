@@ -11,7 +11,7 @@ import eu.ldob.wecare.app.R;
 import eu.ldob.wecare.app.gui.AWeCareFragment;
 import eu.ldob.wecare.app.service.Service;
 
-public class OperationsFragment extends AWeCareFragment {
+public class HistoryFragment extends AWeCareFragment {
 
     private Service service;
 
@@ -23,9 +23,9 @@ public class OperationsFragment extends AWeCareFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_operations, container, false);
+        View view = inflater.inflate(R.layout.fragment_operation_list, container, false);
         
-        OperationsAdapter adapter = new OperationsAdapter(service.getOperations());
+        OperationsAdapter adapter = new OperationsAdapter(getActivity(), service.getOperations());
 
         RecyclerView rvOperations = (RecyclerView) view.findViewById(R.id.rv_operations);
         rvOperations.setAdapter(adapter);

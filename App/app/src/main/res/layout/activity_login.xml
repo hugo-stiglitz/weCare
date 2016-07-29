@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -22,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="@string/hint_id"
+                android:hint="@string/input_paramedic_id"
                 android:textColor="@color/general_text" />
         </android.support.design.widget.TextInputLayout>
 
@@ -36,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="@string/hint_password"
+                android:hint="@string/input_password"
                 android:textColor="@color/general_text" />
         </android.support.design.widget.TextInputLayout>
 

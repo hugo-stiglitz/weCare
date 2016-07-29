@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">weCare</string>
 
-    <string name="hint_id">Dienstnummer</string>
-    <string name="hint_password">Passwort</string>
+    <string name="input_paramedic_id">Dienstnummer</string>
+    <string name="input_password">Passwort</string>
     <string name="btn_login">Anmelden</string>
 
     <string name="err_msg_unknown">Unbekannter Fehler</string>
@@ -12,5 +12,42 @@
 
     <string name="action_message">Benachrichtigung</string>
 
+    <string name="btn_accept">Annehmen</string>
+    <string name="btn_decline">Ablehnen</string>
+    <string name="btn_cancel">Abbrechen</string>
+    <string name="btn_arrived">Angekommen</string>
+    <string name="btn_finished">Beenden</string>
 
+    <string name="input_operation_id">RFL-Nummer</string>
+    <string name="input_operation_date">Datum</string>
+    <string name="input_operation_message">Notfallgeschehen</string>
+    <string name="input_patient_lastname">Nachname</string>
+    <string name="input_patient_firstname">Vorname</string>
+    <string name="input_patient_age">Alter</string>
+    <string name="input_operation_city">Ort</string>
+    <string name="input_operation_zip">PLZ</string>
+    <string name="input_operation_street">Straße / Hausnummer</string>
+    <string name="input_operation_my_distance">Meine Entfernung</string>
+    <string name="input_operation_ambulance_distance">RTW/NAW Entfernung</string>
+
+    <string name="input_timestamp_alarmed">Alarmiert</string>
+    <string name="input_timestamp_accepted">Angenommen</string>
+    <string name="input_timestamp_arrived_me">Ankunft - Ich</string>
+    <string name="input_timestamp_arrived_ambulance">Ankunft RTW/NAW</string>
+    <string name="input_timestamp_finished">Beendet</string>
+    <string name="input_timestamp_documented">Dokumentiert</string>
+
+    <string name="input_operation_alert">Alarmierung</string>
+    <string name="input_documentation_event">Notfallgeschehen</string>
+    <string name="input_documentation_action">Maßnahmen</string>
+
+    <string name="tv_airway">A - Airway</string>
+    <string name="tv_breathing">B - Breathing</string>
+    <string name="tv_circulation">C - Circulation</string>
+    <string name="tv_disability">D - Disability</string>
+    <string name="tv_exposure">E - Exposure</string>
+
+    <string name="btn_stable">Stabil</string>
+    <string name="btn_critical">Kritisch</string>
+    <string name="btn_save">Speichern</string>
 </resources>

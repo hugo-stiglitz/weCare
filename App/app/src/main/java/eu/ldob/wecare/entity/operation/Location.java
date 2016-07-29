@@ -5,30 +5,17 @@ public class Location {
     private GPSCoordinates gps;
     private Address address;
 
-    public GPSCoordinates getGps() { return gps; }
+    public Location(Address address, GPSCoordinates gps) {
 
-    public void distanceTo(Location location) {
-        this.gps.distanceTo(location.getGps());
+        this.address = address;
+        this.gps = gps;
     }
 
-    private class GPSCoordinates {
-
-        private float lat;
-        private float lng;
-
-        public float distanceTo(GPSCoordinates gps) {
-            float distance = -1;
-
-            //TODO implement
-
-            return distance;
-        }
+    public Address getAddress() {
+        return address;
     }
 
-    private class Address {
-
-        private String name;
-        private String city;
-        private String zipCode;
+    public GPSCoordinates getCoordinates() {
+        return gps;
     }
 }
