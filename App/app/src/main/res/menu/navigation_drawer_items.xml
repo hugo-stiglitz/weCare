@@ -5,18 +5,23 @@
 
     <group android:checkableBehavior="all">
         <item
+            android:id="@+id/navigation_item_0"
+            android:icon="@drawable/user"
+            android:title="Lucas Dobler - RS"/>
+
+        <item
             android:id="@+id/navigation_item_1"
-            android:icon="@drawable/placeholder"
-            android:title="Toolbar"/>
+            android:icon="@drawable/pause"
+            android:title="Pausieren"/>
         <item
             android:id="@+id/navigation_item_2"
-            android:icon="@drawable/placeholder"
-            android:title="FloatActionButton"/>
+            android:icon="@drawable/settings"
+            android:title="Einstellungen"/>
 
         <item
             android:id="@+id/navigation_item_3"
-            android:icon="@drawable/placeholder"
-            android:title="NavigationView"/>
+            android:icon="@drawable/logout"
+            android:title="Abmelden"/>
     </group>
 
 </menu>

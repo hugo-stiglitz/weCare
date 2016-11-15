@@ -10,36 +10,76 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:weightSum="10">
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
             android:layout_weight="9">
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/operation_status"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/primary_dark"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/operation_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/primary_dark"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
             <TextView
-                android:id="@+id/operation_header"
+                android:id="@+id/operation_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/primary_dark"
-                android:layout_weight="1" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/primary" />
 
             <TextView
                 android:id="@+id/operation_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/general_text"
-                android:layout_weight="1" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/primary" />
+
+            <TextView
+                android:id="@+id/operation_additional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/general_text" />
+
         </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/edit_button"
+        <FrameLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/edit"
-            android:layout_weight="1"
-            android:background="@drawable/button_icon_bg" />
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:id="@+id/edit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/edit"
+                android:background="@drawable/button_icon_bg"
+                android:layout_margin="5dp"/>
+
+        </FrameLayout>
 
     </LinearLayout>
 

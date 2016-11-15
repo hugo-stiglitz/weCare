@@ -3,7 +3,6 @@ package eu.ldob.wecare.app.gui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -12,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import eu.ldob.wecare.app.R;
-import eu.ldob.wecare.app.service.Service;
-import eu.ldob.wecare.app.service.ServiceHandler;
+import eu.ldob.wecare.service.logic.Service;
+import eu.ldob.wecare.service.logic.ServiceHandler;
 import eu.ldob.wecare.app.util.DateUtil;
 import eu.ldob.wecare.app.util.WeCareVariables;
 import eu.ldob.wecare.entity.operation.Operation;

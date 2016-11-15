@@ -4,7 +4,7 @@ public class FormatUtil {
 
     private FormatUtil() { }
 
-    public static String distanceToString(float meter) {
+    public static String distanceToString(double meter) {
 
         if(meter < 2000) {
             return Math.round(meter / 10.0) * 10 + " m";

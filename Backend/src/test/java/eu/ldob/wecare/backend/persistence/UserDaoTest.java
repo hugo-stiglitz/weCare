@@ -1,5 +1,7 @@
 package eu.ldob.wecare.backend.persistence;
 
+import eu.ldob.wecare.backend.exception.BadRequestException;
+import eu.ldob.wecare.backend.exception.InsertDatabaseException;
 import eu.ldob.wecare.backend.persistence.impl.UserDao;
 import eu.ldob.wecare.backend.setup.ISetupDao;
 import eu.ldob.wecare.backend.setup.SetupDao;
@@ -37,9 +39,18 @@ public class UserDaoTest {
         setupDao.createTableUser();
 
         AUser user = new Doctor(-1, "Lucas", "Dobler");
-        userDao.insert(user);
+        try {
+            userDao.insert(user);
+        } catch (InsertDatabaseException e) {
+            e.printStackTrace();
+        }
 
-        AUser resultUser = userDao.selectAll().get(0);
+        AUser resultUser = null;
+        try {
+            resultUser = userDao.selectAll().get(0);
+        } catch (BadRequestException e) {
+            e.printStackTrace();
+        }
 
         Assert.assertEquals(user.getFirstName(), resultUser.getFirstName());
         Assert.assertEquals(user.getLastName(), resultUser.getLastName());

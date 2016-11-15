@@ -9,11 +9,14 @@ import android.view.ViewGroup;
 
 import eu.ldob.wecare.app.R;
 import eu.ldob.wecare.app.gui.AWeCareFragment;
-import eu.ldob.wecare.app.service.Service;
+import eu.ldob.wecare.service.logic.IDataChangeListener;
+import eu.ldob.wecare.service.logic.Service;
 
-public class CurrentFragment extends AWeCareFragment {
+public class CurrentFragment extends AWeCareFragment implements IDataChangeListener {
 
     private Service service;
+
+    private OperationsAdapter adapter;
 
     @Override
     public void setService(Service service) {
@@ -25,12 +28,18 @@ public class CurrentFragment extends AWeCareFragment {
 
         View view = inflater.inflate(R.layout.fragment_operation_list, container, false);
         
-        OperationsAdapter adapter = new OperationsAdapter(getActivity(), service.getOperations());
+        adapter = new OperationsAdapter(getActivity(), service.getOperations());
+        service.addDataChangeListener(this);
 
         RecyclerView rvOperations = (RecyclerView) view.findViewById(R.id.rv_operations);
         rvOperations.setAdapter(adapter);
         rvOperations.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         return view;
+    }
+
+    @Override
+    public void dataChanged() {
+        adapter.notifyDataSetChanged();
     }
 }

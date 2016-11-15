@@ -13,8 +13,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import eu.ldob.wecare.app.R;
-import eu.ldob.wecare.app.service.Service;
-import eu.ldob.wecare.app.service.ServiceHandler;
+import eu.ldob.wecare.service.logic.Service;
+import eu.ldob.wecare.service.logic.ServiceHandler;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -52,7 +52,6 @@ public class LoginActivity extends AppCompatActivity {
     private void login() {
         if (validateId() && validatePassword()) {
 
-            ServiceHandler.setService(new Service());
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }

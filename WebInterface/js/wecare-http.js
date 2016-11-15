@@ -55,7 +55,7 @@ angular.module('weCare')
         },
         {
             id: 'R1623428',
-            message: 'ACS sympthomatik, Einweiser wartet an der strasse',
+            message: 'ACS symptomatik, Einweiser wartet an der strasse',
             patient: {
                 lastname: 'Hartmut',
                 firstname: 'Dünser'

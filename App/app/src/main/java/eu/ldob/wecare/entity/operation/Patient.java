@@ -25,6 +25,10 @@ public class Patient {
         return firstname;
     }
 
+    public Date getBirthdate() {
+        return birthdate;
+    }
+
     public int getAge() {
 
         // TODO resolve with java8 Period.between(..) or Years.yearsBetween(..)

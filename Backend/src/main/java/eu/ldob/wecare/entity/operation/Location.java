@@ -2,33 +2,22 @@ package eu.ldob.wecare.entity.operation;
 
 public class Location {
 
-    private GPSCoordinates gps;
+    private GPSCoordinates coordinates;
     private Address address;
 
-    public GPSCoordinates getGps() { return gps; }
+    public Location() { }
 
-    public void distanceTo(Location location) {
-        this.gps.distanceTo(location.getGps());
+    public Location(Address address, GPSCoordinates coordinates) {
+
+        this.address = address;
+        this.coordinates = coordinates;
     }
 
-    private class GPSCoordinates {
-
-        private float lat;
-        private float lng;
-
-        public float distanceTo(GPSCoordinates gps) {
-            float distance = -1;
-
-            //TODO implement
-
-            return distance;
-        }
+    public Address getAddress() {
+        return address;
     }
 
-    private class Address {
-
-        private String name;
-        private String city;
-        private String zipCode;
+    public GPSCoordinates getCoordinates() {
+        return coordinates;
     }
 }

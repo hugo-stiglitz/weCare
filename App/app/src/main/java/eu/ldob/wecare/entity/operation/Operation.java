@@ -41,7 +41,7 @@ public class Operation {
         ACCEPTED("Angenommen", "Anfahrt"),
         ARRIVED("Eingetroffen", "Am Einsatzort"),
         FINISHED("Beendet", "Bericht erstellen"),
-        DOCUMENTED("Empfangen", "Zusammenfassung"),
+        DOCUMENTED("Dokumentiert", "Zusammenfassung"),
         CANCELED("Abgebrochen", "Nicht teilgenommen");
 
         private String name;
@@ -59,10 +59,6 @@ public class Operation {
         public String getTitle() {
             return title;
         }
-
-        public EStatus[] getAllStatus() {
-            return EStatus.values();
-        }
     }
 
     public void setStatus(EStatus status) {
@@ -77,6 +73,8 @@ public class Operation {
     public EStatus getStatus() {
         return status;
     }
+
+    public Dispatcher getDispatcher() { return dispatcher; }
 
     public Map<EStatus,Date> getTimestamps() {
         return timestamps;
@@ -95,7 +93,8 @@ public class Operation {
     }
 
     public String getMyDistance() {
-        return FormatUtil.distanceToString(currentCoordinates.distanceTo(incident.getLocation().getCoordinates()));
+        //return FormatUtil.distanceToString(currentCoordinates.distanceTo(incident.getLocation().getCoordinates()));
+        return FormatUtil.distanceToString(472.489f);
     }
 
     public String getAmbulanceDistance() {

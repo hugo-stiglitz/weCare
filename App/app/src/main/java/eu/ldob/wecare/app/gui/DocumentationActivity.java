@@ -10,8 +10,8 @@ import android.widget.TextView;
 import java.util.Date;
 
 import eu.ldob.wecare.app.R;
-import eu.ldob.wecare.app.service.Service;
-import eu.ldob.wecare.app.service.ServiceHandler;
+import eu.ldob.wecare.service.logic.Service;
+import eu.ldob.wecare.service.logic.ServiceHandler;
 import eu.ldob.wecare.app.util.DateUtil;
 import eu.ldob.wecare.app.util.WeCareVariables;
 import eu.ldob.wecare.entity.operation.Documentation;

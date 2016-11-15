@@ -1,5 +1,10 @@
 package eu.ldob.wecare.app.gui;
 
+import android.content.Context;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -15,16 +20,19 @@ import android.widget.Toast;
 import eu.ldob.wecare.app.R;
 import eu.ldob.wecare.app.gui.main.CurrentFragment;
 import eu.ldob.wecare.app.gui.main.HistoryFragment;
-import eu.ldob.wecare.app.service.Service;
-import eu.ldob.wecare.app.service.ServiceHandler;
+import eu.ldob.wecare.service.logic.Service;
+import eu.ldob.wecare.service.logic.ServiceHandler;
 import eu.ldob.wecare.app.util.ViewPagerAdapter;
+import eu.ldob.wecare.entity.operation.GPSCoordinates;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LocationListener {
 
     private Service service;
 
     private DrawerLayout drawerLayout;
     private ViewPager viewPager;
+
+    private LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
         initToolbar();
         initDrawer();
         initTabs();
+
+        startLocationTracking();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        stopLocationTracking();
     }
 
     @Override
@@ -111,5 +128,48 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) { }
         });
+    }
+
+    private void startLocationTracking() {
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        //criteria.setAccuracy(Criteria.ACCURACY_COARSE);
+        //criteria.setPowerRequirement(Criteria.POWER_LOW);
+        String provider = locationManager.getBestProvider(criteria, false);
+
+        Location location = locationManager.getLastKnownLocation(provider);
+        if (location != null) {
+            onLocationChanged(location);
+        }
+
+        locationManager.requestLocationUpdates(provider, 2000, 10, this);
+    }
+
+    private void stopLocationTracking() {
+
+        locationManager.removeUpdates(this);
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+        // TODO bugfix!
+        service.setCurrentLocation(new GPSCoordinates(location.getLatitude(), location.getLongitude()), location.getAccuracy());
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        // TODO
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+        // TODO
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+        // TODO
     }
 }
